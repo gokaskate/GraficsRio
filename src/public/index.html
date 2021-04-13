@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <title>Grafics Rio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <link href="styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body id="top">
+    <!-- ################################################################################################ -->
+    <div class="wrapper row1">
+        <header id="header" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <div id="logo" class="fl_left">
+                <h1><a href="index.html">Rio Magdalena</a></h1>
+                <p></p>
+            </div>
+            <div id="quickinfo" class="fl_right">
+                <ul class="nospace inline">
+                    <li><strong>Desde:</strong><br> Departamento del huila.</li>
+                    <li><strong>Hasta:</strong><br> Desemboca en el mar caribe.</li>
+                </ul>
+            </div>
+            <!-- ################################################################################################ -->
+        </header>
+        <nav id="mainav" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <ul class="clear">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#hacer">Proyecto Grafics Rio</a></li>
+                <li><a href="#graf">Ver Graficos</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- ################################################################################################ -->
+    <div id="home" class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/rio_magdalena.jpg');">
+        <div id="pageintro" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <article>
+                <p>Grafics Rio</p>
+                <h3 class="heading">Colombia</h3>
+                <p>Estadisticas y Graficos del Rio Magdalena</p>
+            </article>
+            <!-- ################################################################################################ -->
+        </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <!-- main body -->
+            <!-- ################################################################################################ -->
+            <section id="introblocks">
+                <div id="hacer" class="sectiontitle">
+                    <h6 class="heading">Quienes somos y que hacemos?</h6>
+                </div>
+                <ul class="nospace group">
+                    <li class="one_third first">
+                        <article><i class="fa fa-futbol-o"></i>
+                            <h6 class="heading font-x1"><a href="#">Tatiana</a></h6>
+                            <p>El río Magdalena, antiguamente también llamado río Grande de la Magdalena, o río Grande, es un río de Colombia que desemboca en el mar Caribe y nace en el departamento del Huila.​ Es navegable desde Honda hasta su desembocadura,
+                                y su principal afluente es el río Cauca. Su cuenca ocupa el 24 % del territorio continental del país. En ella están 11 departamentos de Colombia: Magdalena, Atlántico, Bolívar, Cesar, Antioquia, Santander, Boyacá, Cundinamarca,
+                                Caldas, Tolima, y Huila, en los cuales vive el 80 % de la población colombiana y se produce el 85 % del PIB nacional.</p>
+                        </article>
+                    </li>
+                    <li class="one_third">
+                        <article><i class="fa fa-linode"></i>
+                            <h6 class="heading font-x1"><a href="#">Rio Magdalena</a></h6>
+                            <p>El río Magdalena, antiguamente también llamado río Grande de la Magdalena, o río Grande, es un río de Colombia que desemboca en el mar Caribe y nace en el departamento del Huila.​ Es navegable desde Honda hasta su desembocadura,
+                                y su principal afluente es el río Cauca. Su cuenca ocupa el 24 % del territorio continental del país. En ella están 11 departamentos de Colombia: Magdalena, Atlántico, Bolívar, Cesar, Antioquia, Santander, Boyacá, Cundinamarca,
+                                Caldas, Tolima, y Huila, en los cuales vive el 80 % de la población colombiana y se produce el 85 % del PIB nacional.</p>
+                        </article>
+                    </li>
+                    <li class="one_third">
+                        <article><i class="fa fa-s15"></i>
+                            <h6 class="heading font-x1"><a href="#">Grafics Rios</a></h6>
+                            <p>El río Magdalena, antiguamente también llamado río Grande de la Magdalena, o río Grande, es un río de Colombia que desemboca en el mar Caribe y nace en el departamento del Huila.​ Es navegable desde Honda hasta su desembocadura,
+                                y su principal afluente es el río Cauca. Su cuenca ocupa el 24 % del territorio continental del país. En ella están 11 departamentos de Colombia: Magdalena, Atlántico, Bolívar, Cesar, Antioquia, Santander, Boyacá, Cundinamarca,
+                                Caldas, Tolima, y Huila, en los cuales vive el 80 % de la población colombiana y se produce el 85 % del PIB nacional.</p>
+                        </article>
+                    </li>
+                </ul>
+            </section>
+            <!-- ################################################################################################ -->
+            <hr class="btmspace-80">
+            <!-- ################################################################################################ -->
+            <section>
+                <div class="sectiontitle">
+                    <h6 id="graf" class="heading">Graficos del Rio Magdalena</h6>
+                    <p>Los siguientes datos corresponden a los diferentes municipios por los que cruza el rio magdalena.</p>
+                    <br>
+                    <p style="color:#E00101"> <strong>Linea Roja para tomar accion.</strong></p>
+                    <p style="color:#E05F00"> <strong>La linea Naranja prepararse o precaucion.</strong></p>
+                    <p style="color:#E0CC28"> <strong>La linea Amarilla para informarse.</strong></p>
+                </div>
+
+                <div class="echatepabajo" style="width:75%;">
+                    <canvas id="myChart"></canvas>
+                    <script>
+                        var ctx = document.getElementById('myChart');
+                        var myChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+                                datasets: [{
+                                    label: 'Los siguientes datos corresponden al municipio de Honda, tolima en m3/s',
+                                    data: [6117, 2956, 3871, 3210, 4100, 4438, 3169],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+
+                <div class="echatepabajo" style="width:75%;">
+                    <canvas id="myChart1"></canvas>
+                    <script>
+                        var ctx = document.getElementById('myChart1');
+                        var myChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+                                datasets: [{
+                                    label: 'Los siguientes datos corresponden al municipio de la Dorada, Caldas en m3/s',
+                                    data: [6400, 3951, 3871, 5149, 3100, 4438, 4804],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+
+                <div class="echatepabajo" style="width:75%;">
+                    <canvas id="myChart2"></canvas>
+                    <script>
+                        var ctx = document.getElementById('myChart2');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+                                datasets: [{
+                                    label: 'Los siguientes datos corresponden al municipio de Puerto salgar, Cundinamarca en m3/s',
+                                    data: [6700, 3951, 3871, 5149, 4100, 4438, 3169],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+
+                <div class="echatepabajo" style="width:75%;">
+                    <canvas id="myChart3"></canvas>
+                    <script>
+                        var ctx = document.getElementById('myChart3');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+                                datasets: [{
+                                    label: 'Los siguientes datos corresponden al municipio de Bolivar en m3/s',
+                                    data: [8221, 6123, 8407, 6540, 7567, 7912, 5470],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+
+                <div class="echatepabajo" style="width:75%;">
+                    <canvas id="myChart4"></canvas>
+                    <script>
+                        var ctx = document.getElementById('myChart4');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+                                datasets: [{
+                                    label: 'Honda en m3/s',
+                                    data: [6117, 2956, 3871, 3210, 4100, 4438, 3751],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+
+                                }, {
+                                    label: 'La Dorada en m3/s',
+                                    data: [6400, 3951, 3540, 5149, 3100, 4138, 4804],
+                                    backgroundColor: [
+                                        'rgba(200, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+
+                                }, {
+                                    label: 'Puerto Salgar en m3/s',
+                                    data: [6700, 3951, 3871, 5149, 4100, 4438, 3169],
+                                    backgroundColor: [
+                                        'rgba(200, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+
+                                }, {
+                                    label: 'Bolivar en m3/s',
+                                    data: [8221, 6123, 8407, 6540, 7567, 7912, 5470],
+                                    backgroundColor: [
+                                        'rgba(200, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+
+                <!--                     <ul class="nospace group overview">
+                        <li class="one_third">
+                            <figure>
+                                <a href="/grafic1.html"><img src="images/gra1.PNG" alt=""></a>
+                                <figcaption>
+                                    <h6 class="heading">Honda, Tolima.</h6>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="one_third">
+                            <figure>
+                                <a href="/grafic2.html"><img src="images/gra3.PNG" alt=""></a>
+                                <figcaption>
+                                    <h6 class="heading">La dorada, Caldas.</h6>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="one_third">
+                            <figure>
+                                <a href="/grafic3.html"><img src="images/gra4.PNG" alt=""></a>
+                                <figcaption>
+                                    <h6 class="heading">Puerto Salgar, Cundinamarca.</h6>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="one_third">
+                            <figure>
+                                <a href="/grafic5.html"><img src="images/gra5.png" alt=""></a>
+                                <figcaption>
+                                    <h6 class="heading">Barranquilla.</h6>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="one_third">
+                            <figure>
+                                <a href="/grafic4.html"><img src="images/gra6.png" alt=""></a>
+                                <figcaption>
+                                    <h6 class="heading">Sagangue, Bolivar.</h6>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    </ul> -->
+
+
+            </section>
+            <!-- ################################################################################################ -->
+            <!-- / main body -->
+            <div class="clear"></div>
+        </main>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row5">
+        <div id="copyright" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">Tatiana</a></p>
+            <p class="fl_right">Grafics Rio by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">Tatiana's Corp</a></p>
+            <!-- ################################################################################################ -->
+        </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+    <!-- JAVASCRIPTS -->
+    <script src="layout/scripts/jquery.min.js"></script>
+    <script src="layout/scripts/jquery.backtotop.js"></script>
+    <script src="layout/scripts/jquery.mobilemenu.js"></script>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+
+
+</html>
